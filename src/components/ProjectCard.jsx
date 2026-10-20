@@ -1,4 +1,5 @@
-function ProjectCard({title, description, technologies, number}){
+function ProjectCard({title, description, technologies, number, status}){
+  const activo = status === true || status === 'True';
   return(
     <article className="project-card">
       <div className="project-card-top">
@@ -13,6 +14,12 @@ function ProjectCard({title, description, technologies, number}){
           <span className="technology" key={technology}>
             {technology}</span>
         ))}
+      </div>
+      <div className="project-status">
+        <span className={`status-dot ${activo ? "online" : "offline"}`} />
+        <span className="status-text">
+          {activo ? "Projecto en curso" : "Projecto finalizado"}
+        </span>
       </div>
     </article>
   );
